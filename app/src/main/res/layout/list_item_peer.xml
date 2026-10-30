@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/dashboard_card_bg"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Peer ID Header -->
+        <ImageView
+            android:id="@+id/iv_id_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_peer_address"
+            app:layout_constraintBottom_toBottomOf="@+id/list_peer_addr"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/list_peer_addr"
+            app:tint="@color/dashboard_accent_green" />
+
+        <TextView
+            android:id="@+id/list_peer_addr"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="serif-monospace"
+            android:text="645ae69a72"
+            android:textColor="@color/dashboard_text_sub"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_id_icon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/list_peer_managed_ip"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="10.147.17.x"
+            android:textColor="@color/dashboard_accent_green"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/list_peer_addr"
+            app:layout_constraintTop_toBottomOf="@+id/list_peer_addr"
+            tools:visibility="visible" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/dashboard_divider"
+            app:layout_constraintTop_toBottomOf="@+id/list_peer_managed_ip" />
+
+        <!-- Role -->
+        <ImageView
+            android:id="@+id/iv_role_icon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/ic_peer_role"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            app:tint="@color/dashboard_text_sub" />
+
+        <TextView
+            android:id="@+id/tv_role_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/peer_role"
+            android:textColor="@color/dashboard_text_sub"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_role_icon"
+            app:layout_constraintStart_toEndOf="@+id/iv_role_icon"
+            app:layout_constraintTop_toTopOf="@+id/iv_role_icon" />
+
+        <TextView
+            android:id="@+id/list_peer_role"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LEAF"
+            android:textColor="@color/dashboard_text_main"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_role_label" />
+
+        <!-- Version -->
+        <ImageView
+            android:id="@+id/iv_ver_icon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/ic_peer_version"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_role_icon"
+            app:tint="@color/dashboard_text_sub" />
+
+        <TextView
+            android:id="@+id/tv_ver_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/peer_client_version"
+            android:textColor="@color/dashboard_text_sub"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_ver_icon"
+            app:layout_constraintStart_toEndOf="@+id/iv_ver_icon"
+            app:layout_constraintTop_toTopOf="@+id/iv_ver_icon" />
+
+        <TextView
+            android:id="@+id/list_peer_ver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1.16.1"
+            android:textColor="@color/dashboard_text_main"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_ver_label" />
+
+        <!-- Latency -->
+        <ImageView
+            android:id="@+id/iv_lat_icon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/ic_peer_latency"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_ver_icon"
+            app:tint="@color/dashboard_text_sub" />
+
+        <TextView
+            android:id="@+id/tv_lat_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/peer_latency"
+            android:textColor="@color/dashboard_text_sub"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_lat_icon"
+            app:layout_constraintStart_toEndOf="@+id/iv_lat_icon"
+            app:layout_constraintTop_toTopOf="@+id/iv_lat_icon" />
+
+        <TextView
+            android:id="@+id/list_peer_lat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 ms"
+            android:textColor="@color/dashboard_accent_green"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_lat_label" />
+
+        <!-- Path -->
+        <ImageView
+            android:id="@+id/iv_path_icon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/ic_peer_path"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_lat_icon"
+            app:tint="@color/dashboard_text_sub" />
+
+        <TextView
+            android:id="@+id/tv_path_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/peer_preferred_path"
+            android:textColor="@color/dashboard_text_sub"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_path_icon"
+            app:layout_constraintStart_toEndOf="@+id/iv_path_icon"
+            app:layout_constraintTop_toTopOf="@+id/iv_path_icon" />
+
+        <TextView
+            android:id="@+id/list_peer_path"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:gravity="end"
+            android:text="192.168.1.1/9993"
+            android:textColor="@color/dashboard_text_sub"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_path_label"
+            app:layout_constraintTop_toTopOf="@+id/tv_path_label" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

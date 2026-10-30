@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_item_settings"
+        android:icon="@drawable/ic_settings_network"
+        android:title="@string/menu_settings_network"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_item_peers"
+        android:icon="@drawable/ic_peer_role"
+        android:title="@string/menu_peers" />
+    <item
+        android:id="@+id/menu_item_exit_config"
+        android:icon="@drawable/ic_menu_about_nexus"
+        android:title="@string/menu_exit_config" />
+    <item
+        android:id="@+id/menu_item_about"
+        android:icon="@drawable/ic_menu_about_nexus"
+        android:title="@string/menu_about" />
+</menu>

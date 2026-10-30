@@ -1,0 +1,30 @@
+# Built application files
+*.apk
+*.aar
+*.ap_
+*.aab
+
+# Gradle build cache & intermediate outputs
+.gradle/
+build/
+app/build/
+core/build/
+*/build/
+
+# Local configuration
+local.properties
+
+# Android Studio / IntelliJ IDEA
+.idea/
+*.iml
+.cxx/
+.externalNativeBuild/
+
+# Scratch / temporary tools directory
+scratch/
+
+# System & OS temporary files
+.DS_Store
+Thumbs.db
+*.log
+*.tmp

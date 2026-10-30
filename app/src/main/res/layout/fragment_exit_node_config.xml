@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dashboard_bg">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Card 1: 漫游出口控制 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/dashboard_card_bg"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/dashboard_divider"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    
+                    <LinearLayout
+                        android:id="@+id/layout_exit_service_master"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/baseline_link_24"
+                            app:tint="@color/dashboard_accent_green" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:text="@string/exit_node_master_toggle"
+                            android:textColor="@color/dashboard_text_main"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                        <com.google.android.material.switchmaterial.SwitchMaterial
+                            android:id="@+id/switch_exit_service_master"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/dashboard_divider" android:layout_marginVertical="12dp" />
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/exit_node_mode_label" android:textColor="@color/dashboard_text_sub" android:textSize="12sp" android:layout_marginBottom="8dp" />
+
+                    <com.google.android.material.button.MaterialButtonToggleGroup
+                        android:id="@+id/toggle_exit_mode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:singleSelection="true"
+                        app:selectionRequired="true"
+                        app:checkedButton="@+id/btn_mode_nat">
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_mode_nat"
+                            style="?attr/materialButtonOutlinedStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/exit_node_mode_nat"
+                            android:textSize="12sp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_mode_proxy"
+                            style="?attr/materialButtonOutlinedStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/exit_node_mode_proxy"
+                            android:textSize="12sp" />
+                    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card 2: 系统状态 -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_exit_system_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/dashboard_card_bg"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/dashboard_divider"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/exit_node_status_title" android:textColor="@color/dashboard_text_main" android:textStyle="bold" android:textSize="14sp" android:layout_marginBottom="12dp" />
+                    
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/dashboard_divider" android:layout_marginBottom="12dp" />
+
+                    <!-- Stats Rows -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/exit_node_ext_if_label" android:textColor="@color/dashboard_text_sub" />
+                        <TextView android:id="@+id/tv_exit_ext_if" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/no_data" android:textColor="@color/dashboard_text_main" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/exit_node_root_label" android:textColor="@color/dashboard_text_sub" />
+                        <TextView android:id="@+id/tv_exit_root_status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/no_data" android:textColor="@color/dashboard_text_main" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/exit_node_fwd_label" android:textColor="@color/dashboard_text_sub" />
+                        <TextView android:id="@+id/tv_exit_fwd_status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/no_data" android:textColor="@color/dashboard_text_main" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/exit_node_nat_label" android:textColor="@color/dashboard_text_sub" />
+                        <TextView android:id="@+id/tv_exit_nat_status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/no_data" android:textColor="@color/dashboard_text_main" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/exit_node_dns_label" android:textColor="@color/dashboard_text_sub" />
+                        <TextView android:id="@+id/tv_exit_dns" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/no_data" android:textColor="@color/dashboard_text_main" />
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/dashboard_divider" android:layout_marginVertical="12dp" />
+
+                    <!-- 诊断工具 -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_exit_view_logs"
+                            style="?attr/materialButtonOutlinedStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            android:text="@string/exit_node_logs_btn"
+                            app:icon="@drawable/baseline_description_24"
+                            app:iconTint="@color/dashboard_accent_green"
+                            android:textColor="@color/dashboard_accent_green"
+                            app:strokeColor="@color/dashboard_accent_green" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_exit_view_nat_logs"
+                            style="?attr/materialButtonOutlinedStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/exit_node_nat_logs_btn"
+                            app:icon="@drawable/baseline_network_check_24"
+                            app:iconTint="@color/dashboard_accent_green"
+                            android:textColor="@color/dashboard_accent_green"
+                            app:strokeColor="@color/dashboard_accent_green" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card 3: 实时流量统计 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/dashboard_card_bg"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/dashboard_divider"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/exit_node_stats_title" android:textColor="@color/dashboard_text_main" android:textStyle="bold" android:textSize="14sp" android:layout_marginBottom="12dp" />
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/dashboard_divider" android:layout_marginBottom="12dp" />
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/exit_node_stats_wan" android:textColor="@color/dashboard_text_sub" />
+                        <TextView android:id="@+id/tv_exit_wan_speed" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0 B/s" android:textColor="@color/dashboard_accent_green" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/exit_node_stats_zt" android:textColor="@color/dashboard_text_sub" />
+                        <TextView android:id="@+id/tv_exit_zt_speed" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0 B/s" android:textColor="@color/dashboard_accent_green" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card 4: 代理补强设置 -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_exit_proxy_config"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/dashboard_card_bg"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/dashboard_divider"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="12dp">
+                        <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_globe" app:tint="@color/dashboard_accent_green" />
+                        <TextView android:id="@+id/tv_proxy_title_label" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp" android:text="@string/proxy_reinforce_title" android:textColor="@color/dashboard_text_main" android:textStyle="bold" android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/dashboard_divider" android:layout_marginBottom="16dp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_server_address_display"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="16dp"
+                        app:boxBackgroundColor="@android:color/transparent"
+                        app:hintTextColor="@color/dashboard_text_sub"
+                        android:hint="@string/exit_node_proxy_address_label"
+                        app:endIconMode="custom"
+                        app:endIconDrawable="@drawable/baseline_qr_code_24"
+                        app:endIconTint="@color/dashboard_accent_green"
+                        android:tooltipText="@string/exit_node_qr_tooltip">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_server_address_display"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/dashboard_text_main"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:focusable="false"
+                            android:clickable="false"
+                            android:longClickable="false"
+                            android:cursorVisible="false" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <!-- 端口设置 -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/exit_node_proxy_port_label"
+                        app:helperText="@string/exit_node_port_tooltip">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_server_port"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:text="10004" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- 密码设置 -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="12dp">
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="@string/exit_node_proxy_password_label"
+                            app:helperText="@string/exit_node_password_tooltip">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_server_password"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_generate_server_password"
+                            style="?attr/materialButtonOutlinedStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="@string/exit_node_generate_btn"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <!-- UUID 设置 -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="UUID (TUIC)"
+                            app:helperText="@string/exit_node_uuid_tooltip">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/tv_server_uuid"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:textSize="13sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_generate_server_uuid"
+                            style="?attr/materialButtonOutlinedStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="@string/exit_node_generate_btn"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card 5: 链路优化 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/dashboard_card_bg"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/dashboard_divider"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/exit_node_opt_title" android:textColor="@color/dashboard_text_main" android:textStyle="bold" android:textSize="14sp" android:layout_marginBottom="12dp" />
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/dashboard_divider" android:layout_marginBottom="12dp" />
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/exit_node_opt_bbr" android:textColor="@color/dashboard_text_sub" />
+                        <com.google.android.material.switchmaterial.SwitchMaterial
+                            android:id="@+id/switch_bbr"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/exit_node_opt_udp" android:textColor="@color/dashboard_text_sub" />
+                        <com.google.android.material.switchmaterial.SwitchMaterial
+                            android:id="@+id/switch_udp_tune"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

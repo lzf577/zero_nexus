@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dashboard_bg"
+    android:orientation="vertical">
+
+    <!-- Custom Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="8dp"
+        android:background="@color/dashboard_bg">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/baseline_link_24"
+            android:rotation="180"
+            app:tint="@color/dashboard_accent_green" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/network_detail"
+            android:textColor="@color/dashboard_text_main"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Status Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardBackgroundColor="@color/dashboard_card_bg"
+                app:cardCornerRadius="16dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:id="@+id/network_status_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/network_status_not_connected"
+                        android:textColor="@color/dashboard_accent_green"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/network_detail_network_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/network_name"
+                        android:textColor="@color/dashboard_text_main"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/network_detail_network_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:alpha="0.7"
+                        android:fontFamily="monospace"
+                        android:text="0000000000000000"
+                        android:textColor="@color/dashboard_text_main"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card: Tech Info (Read only) -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardBackgroundColor="@color/dashboard_card_bg"
+                app:cardCornerRadius="16dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Row: Type -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView android:layout_width="100dp" android:layout_height="wrap_content" android:text="@string/network_type" android:textColor="@color/dashboard_text_sub" android:textSize="14sp" />
+                        <TextView android:id="@+id/network_type_textview" android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="end" android:textColor="@color/dashboard_text_main" android:textSize="14sp" android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/dashboard_divider" android:layout_marginVertical="12dp" />
+
+                    <!-- Row: MAC -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView android:layout_width="100dp" android:layout_height="wrap_content" android:text="@string/network_mac" android:textColor="@color/dashboard_text_sub" android:textSize="14sp" />
+                        <TextView android:id="@+id/network_mac_textview" android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="end" android:textColor="@color/dashboard_text_main" android:textSize="14sp" android:fontFamily="monospace" />
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/dashboard_divider" android:layout_marginVertical="12dp" />
+
+                    <!-- Row: MTU -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView android:layout_width="100dp" android:layout_height="wrap_content" android:text="@string/network_mtu" android:textColor="@color/dashboard_text_sub" android:textSize="14sp" />
+                        <TextView android:id="@+id/network_mtu_textview" android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="end" android:textColor="@color/dashboard_text_main" android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/dashboard_divider" android:layout_marginVertical="12dp" />
+
+                    <!-- Row: Broadcast -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView android:layout_width="100dp" android:layout_height="wrap_content" android:text="@string/network_broadcast" android:textColor="@color/dashboard_text_sub" android:textSize="14sp" />
+                        <TextView android:id="@+id/network_broadcast_textview" android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="end" android:textColor="@color/dashboard_text_main" android:textSize="14sp" android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/dashboard_divider" android:layout_marginVertical="12dp" />
+
+                    <!-- Row: Bridging -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView android:layout_width="100dp" android:layout_height="wrap_content" android:text="@string/network_bridging" android:textColor="@color/dashboard_text_sub" android:textSize="14sp" />
+                        <TextView android:id="@+id/network_bridging_textview" android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="end" android:textColor="@color/dashboard_text_main" android:textSize="14sp" android:textStyle="bold" />
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/dashboard_divider" android:layout_marginVertical="12dp" />
+
+                    <!-- Row: DNS Mode -->
+                    <LinearLayout
+                        android:id="@+id/row_dns_mode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingVertical="4dp">
+                        <TextView android:layout_width="100dp" android:layout_height="wrap_content" android:text="@string/network_dns_mode" android:textColor="@color/dashboard_text_sub" android:textSize="14sp" />
+                        <TextView android:id="@+id/network_dns_mode_textview" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="end" android:textColor="@color/dashboard_text_main" android:textSize="14sp" android:textStyle="bold" />
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginStart="8dp"
+                            android:src="@drawable/baseline_link_24"
+                            app:tint="@color/dashboard_text_sub"
+                            android:alpha="0.5" />
+                    </LinearLayout>
+
+                    <View android:id="@+id/divider_dns_servers" android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/dashboard_divider" android:layout_marginVertical="12dp" />
+
+                    <!-- Row: DNS Servers -->
+                    <LinearLayout
+                        android:id="@+id/row_dns_servers"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:orientation="vertical"
+                        android:paddingVertical="4dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/dns_servers_label" android:textColor="@color/dashboard_text_sub" android:textSize="14sp" android:layout_marginBottom="4dp" />
+                        <TextView android:id="@+id/network_dns_servers_textview" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="@color/dashboard_text_main" android:textSize="14sp" android:fontFamily="monospace" />
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/dashboard_divider" android:layout_marginVertical="12dp" />
+
+                    <!-- Row: Assigned IP -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/network_ips" android:textColor="@color/dashboard_text_sub" android:textSize="14sp" android:layout_marginBottom="4dp" />
+                        <TextView android:id="@+id/network_ipaddresses_textview" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="@color/dashboard_text_main" android:textSize="14sp" android:fontFamily="monospace" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card: Urgent Connection Switches (Allowed Interactive) -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                app:cardBackgroundColor="@color/dashboard_card_bg"
+                app:cardCornerRadius="16dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Row: Allow Mobile Data -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="允许移动网络" android:textColor="@color/dashboard_text_sub" android:textSize="14sp" />
+                        <com.google.android.material.switchmaterial.SwitchMaterial
+                            android:id="@+id/network_detail_mobile_data_switch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/dashboard_divider" android:layout_marginVertical="12dp" />
+
+                    <!-- Row: Client Roaming -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/roaming_master_toggle" android:textColor="@color/dashboard_text_sub" android:textSize="14sp" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/roaming_master_desc" android:textColor="@color/dashboard_text_sub" android:alpha="0.6" android:textSize="11sp" />
+                        </LinearLayout>
+                        <com.google.android.material.switchmaterial.SwitchMaterial
+                            android:id="@+id/network_detail_roaming_switch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/dashboard_divider" android:layout_marginVertical="12dp" />
+
+                    <!-- Row: Disable IPv6 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/preferences_network_disable_ipv6" android:textColor="@color/dashboard_text_sub" android:textSize="14sp" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/preferences_network_disable_ipv6_summary" android:textColor="@color/dashboard_text_sub" android:alpha="0.6" android:textSize="11sp" />
+                        </LinearLayout>
+                        <com.google.android.material.switchmaterial.SwitchMaterial
+                            android:id="@+id/network_detail_ipv6_switch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

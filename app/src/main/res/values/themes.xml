@@ -1,0 +1,91 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.ZerotierFix" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="greyText">@color/grey_text</item>
+        <item name="lightGreyText">@color/light_grey_text</item>
+        <item name="tableRowGrey">@color/table_row_grey</item>
+
+        <!-- Custom Overflow Icon -->
+        <item name="actionOverflowButtonStyle">@style/Theme.ZerotierFix.OverflowButton</item>
+    </style>
+
+    <style name="Theme.ZerotierFix.OverflowButton" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_dashboard_menu</item>
+        <item name="android:tint">@color/dashboard_text_main</item>
+        <item name="android:contentDescription">@string/menu_settings_network</item>
+    </style>
+
+    <style name="Theme.ZerotierFix.NoActionBar" parent="Theme.ZerotierFix">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.ZerotierFix.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.ZerotierFix.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Dark">
+        <item name="android:popupBackground">@drawable/bg_popup_menu</item>
+        <item name="colorSurface">@color/dashboard_card_bg</item>
+        <item name="android:textColorPrimary">@color/dashboard_text_main</item>
+        <item name="android:itemTextAppearance">@style/Theme.ZerotierFix.MenuTextAppearance</item>
+        <item name="listPreferredItemPaddingStart">24dp</item>
+        <item name="listPreferredItemPaddingEnd">24dp</item>
+    </style>
+
+
+    <style name="Theme.ZerotierFix.MenuTextAppearance" parent="TextAppearance.AppCompat.Widget.DropDownItem">
+        <item name="android:textColor">@color/dashboard_text_main</item>
+        <item name="android:textSize">15sp</item>
+
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <!-- Dashboard Styled Dialog -->
+    <style name="Theme.ZerotierFix.DashboardDialog" parent="Theme.MaterialComponents.DayNight.Dialog.Alert">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="colorSurface">@color/dashboard_card_bg</item>
+        <item name="colorOnSurface">@color/dashboard_text_main</item>
+        <item name="android:textColor">@color/dashboard_text_main</item>
+        <item name="android:textColorPrimary">@color/dashboard_text_main</item>
+        <item name="android:textColorSecondary">@color/dashboard_text_sub</item>
+        <item name="android:textColorAlertDialogListItem">@color/dashboard_text_main</item>
+        <item name="textAppearanceListItem">@style/Theme.ZerotierFix.DialogListItem</item>
+        <item name="colorAccent">@color/dashboard_accent_green</item>
+        <item name="colorControlNormal">@color/dashboard_text_sub</item>
+        <item name="colorControlActivated">@color/dashboard_accent_green</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/Theme.ZerotierFix.DialogTitle</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.ZerotierFix.Dialog</item>
+    </style>
+
+    <style name="Theme.ZerotierFix.DialogListItem" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textColor">@color/dashboard_text_main</item>
+    </style>
+
+    <style name="Theme.ZerotierFix.DialogTitle" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textColor">@color/dashboard_text_main</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.ZerotierFix.Dialog" parent="">
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="Widget.ZerotierFix.Button.Tonal" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="backgroundTint">@color/dashboard_divider</item>
+        <item name="android:textColor">@color/dashboard_text_main</item>
+        <item name="rippleColor">@color/dashboard_text_sub</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+</resources>

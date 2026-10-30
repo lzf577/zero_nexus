@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_join_network"
+            android:icon="@drawable/ic_peer_role"
+            android:title="加入网络" />
+        <item
+            android:id="@+id/nav_peer_list"
+            android:icon="@drawable/ic_peer_role"
+            android:title="节点列表" />
+        <item
+            android:id="@+id/nav_exit_config"
+            android:icon="@drawable/ic_settings_network"
+            android:title="出口配置" />
+        <item
+            android:id="@+id/nav_roaming_config"
+            android:icon="@drawable/ic_settings_network"
+            android:title="漫游配置" />
+        <item
+            android:id="@+id/nav_check_ip"
+            android:icon="@drawable/ic_settings_network"
+            android:title="测试公网IP (浏览器)" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_menu_about_nexus"
+            android:title="关于" />
+    </group>
+
+</menu>

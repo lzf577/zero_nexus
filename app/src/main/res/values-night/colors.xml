@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="grey_text">#EDEDED</color>
+    <color name="light_grey_text">#ffffff</color>
+    <color name="table_row_grey">#555555</color>
+
+    <color name="dashboard_bg">#181C1E</color>
+    <color name="dashboard_card_bg">#222628</color>
+    <color name="dashboard_accent_green">#00E676</color>
+    <color name="dashboard_accent_red">#FF5252</color>
+    <color name="dashboard_text_main">#E1E3E4</color>
+    <color name="dashboard_text_sub">#A1A3A4</color>
+    <color name="dashboard_divider">#1AFFFFFF</color>
+</resources>
